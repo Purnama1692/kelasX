@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Berpikir Komputasional</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header>
+    <h1>💡 Berpikir Komputasional</h1>
+    <p>Eksplorasi Interaktif Informatika SMA Kelas X</p>
+  </header>
+
+  <main>
+    <section>
+      <a href="../index.html">🏠 Home</a>
+      <h2>📚 Konsep Dasar Berpikir Komputasional</h2>
+      <ul>
+        <li><a href="pages/abstraction.html">🎯 Abstraksi</a></li>
+        <li><a href="pages/decomposition.html">🧩 Dekomposisi</a></li>
+        <li><a href="pages/algorithm.html">🧮 Algoritma</a></li>
+        <li><a href="pages/pattern.html">📈 Pengenalan Pola</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🔍 Topik Interaktif</h2>
+      <ul>
+        <li><a href="pages/searching.html">🔍 Searching (Pencarian)</a></li>
+        <li><a href="pages/sorting.html">🔢 Sorting (Pengurutan)</a></li>
+        <li><a href="pages/stack-queue.html">📚 Stack & Queue</a></li>
+      </ul>
+    </section>
+
+    
+<section>
+  <h2>🧠 Diagram Pilar BK (Pop-up)</h2>
+  <img src="assets/placeholder-diagram.png" alt="Diagram Pilar BK" class="responsive" usemap="#mapbk">
+  <map name="mapbk">
+    <area shape="rect" coords="50,40,250,100" alt="Abstraksi" onclick="showModal('Abstraksi', 'Menyaring informasi penting dari masalah.')">
+    <area shape="rect" coords="350,40,550,100" alt="Dekomposisi" onclick="showModal('Dekomposisi', 'Memecah masalah menjadi bagian-bagian kecil.')">
+    <area shape="rect" coords="50,160,250,220" alt="Algoritma" onclick="showModal('Algoritma', 'Langkah-langkah sistematis menyelesaikan masalah.')">
+    <area shape="rect" coords="350,160,550,220" alt="Pola" onclick="showModal('Pola', 'Mengenali pola berulang dalam masalah.')">
+  </map>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+</section>
+<script>
+function showModal(title, text) {
+  document.getElementById("modal-title").innerText = title;
+  document.getElementById("modal-text").innerText = text;
+  document.getElementById("modal").style.display = "block";
+}
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+<style>
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 2px solid #0055a5;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+}
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+</style>
+
+      
+
+
+<map name="mapbk">
+  <area shape="rect" coords="50,40,250,100" alt="Abstraksi" onclick="alert('Abstraksi: menyaring informasi penting dari masalah.')" href="pages/abstraction.html">
+  <area shape="rect" coords="350,40,550,100" alt="Dekomposisi" onclick="alert('Dekomposisi: memecah masalah menjadi bagian lebih kecil.')" href="pages/decomposition.html">
+  <area shape="rect" coords="50,160,250,220" alt="Algoritma" onclick="alert('Algoritma: langkah-langkah untuk menyelesaikan masalah.')" href="pages/algorithm.html">
+  <area shape="rect" coords="350,160,550,220" alt="Pola" onclick="alert('Pola: mengenali dan memanfaatkan pola yang pernah ada.')" href="pages/pattern.html">
+</map>
+
+     
+    </section>
+  
+<section>
+  <h2>🧪 Latihan & Simulasi</h2>
+  <ul>
+    <li><a href="pages/latihan.html">📝 Latihan Soal Interaktif</a></li>
+    <li><a href="pages/simulasi.html">🎮 Simulasi Lanjutan</a></li>
+  </ul>
+</section>
+
+</main>
+
+  <footer>
+    <p>© 2025 | Informatika SMA | Interaktif oleh Putra Purnama, S.Kom</p>
+  </footer>
+</body>
+</html>

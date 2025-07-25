@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pencarian (Searching)</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header><h1>🔍 Searching (Pencarian)</h1></header>
+
+<nav>
+  <a href="../index.html">🏠 Beranda</a> |
+  <a href="searching.html">🔍 Searching</a> |
+  <a href="sorting.html">🔢 Sorting</a> |
+  <a href="stack-queue.html">📚 Stack & Queue</a>
+</nav>
+
+  
+  <main>
+    <section>
+      <h2>Apa itu Searching?</h2>
+      <p>Searching adalah proses menemukan elemen yang memenuhi kriteria tertentu dalam sebuah koleksi data atau objek. Contoh: mencari buku di perpustakaan atau dokumen di komputer.</p>
+    </section>
+
+    <section>
+      <h2>Contoh Interaktif: Tebak Angka</h2>
+      <p>Klik tombol untuk mulai permainan tebak angka antara 1 sampai 100.</p>
+      <div class="interactive">
+        <button onclick="startGame()">Mulai Game</button>
+        <div id="gameArea" style="margin-top: 1rem;"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Strategi Pencarian</h2>
+      <ul>
+        <li><strong>Linear Search:</strong> Memeriksa satu per satu.</li>
+        <li><strong>Binary Search:</strong> Membagi dua dan menyempitkan pencarian berdasarkan hasil.</li>
+      </ul>
+    </section>
+  
+    <section>
+      <h2>Quiz Singkat</h2>
+      <div id="quiz1" class="interactive"></div>
+    </section>
+  
+    <section>
+      <h2>Penjelasan Tambahan</h2>
+      
+<p>Searching atau pencarian adalah salah satu aktivitas yang paling sering dilakukan dalam dunia nyata dan komputasi. Dalam dunia komputasi, kita sering mencari data di dalam array, file, atau database.</p>
+<p><strong>Linear Search:</strong> Pencarian dilakukan dengan memeriksa setiap elemen satu per satu dari awal hingga akhir.</p>
+<p><strong>Binary Search:</strong> Digunakan jika data sudah diurutkan. Proses pencarian dilakukan dengan membagi dua dan membandingkan nilai tengah dengan target.</p>
+<p>Binary search jauh lebih efisien dari linear search, terutama untuk kumpulan data besar.</p>
+
+    </section>
+    </main>
+    
+  <script src="../scripts/quiz.js"></script>
+  <script>
+    renderQuiz("quiz1", "Apa prinsip kerja Binary Search?", [
+      "Menebak acak",
+      "Membandingkan dari tengah dan menyempitkan",
+      "Memeriksa satu per satu dari awal"
+    ], 1);
+  </script>
+
+  <script>
+    let secret, attempts;
+    function startGame() {
+      secret = Math.floor(Math.random() * 100) + 1;
+      attempts = 0;
+      document.getElementById("gameArea").innerHTML = `
+        <p>Tebak angka antara 1–100:</p>
+        <input type="number" id="guess" />
+        <button onclick="checkGuess()">Coba</button>
+        <div id="feedback"></div>
+      `;
+    }
+
+    function checkGuess() {
+      const guess = parseInt(document.getElementById("guess").value);
+      attempts++;
+      let feedback = "";
+      if (guess < secret) feedback = "🔼 Angka saya lebih besar";
+      else if (guess > secret) feedback = "🔽 Angka saya lebih kecil";
+      else feedback = `✅ Benar! Kamu menebak dalam ${attempts} kali tebakan.`;
+
+      document.getElementById("feedback").innerText = feedback;
+    }
+  </script>
+</body>
+</html>

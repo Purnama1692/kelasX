@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pengurutan (Sorting)</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header><h1>🔢 Sorting (Pengurutan)</h1></header>
+
+<nav>
+  <a href="../index.html">🏠 Beranda</a> |
+  <a href="searching.html">🔍 Searching</a> |
+  <a href="sorting.html">🔢 Sorting</a> |
+  <a href="stack-queue.html">📚 Stack & Queue</a>
+</nav>
+
+  
+  <main>
+    <section>
+      <h2>Apa itu Sorting?</h2>
+      <p>Sorting atau pengurutan adalah proses menyusun data agar teratur menurut aturan tertentu, seperti dari yang terkecil ke terbesar.</p>
+    </section>
+
+    <section>
+      <h2>Contoh: Insertion Sort (Interaktif)</h2>
+      <p>Klik tombol di bawah untuk melihat animasi penyusunan bilangan secara menaik.</p>
+      <div class="interactive">
+        <button onclick="insertionSort()">🔁 Jalankan Insertion Sort</button>
+        <div id="sortArea" style="display:flex; gap:10px; margin-top:1rem;"></div>
+      </div>
+    </section>
+  
+    <section>
+      <h2>Penjelasan Tambahan</h2>
+      
+<p>Sorting digunakan untuk mengurutkan data sehingga lebih mudah dicari, ditampilkan, atau dianalisis. Dalam komputasi, ada berbagai algoritma pengurutan.</p>
+<ul>
+  <li><strong>Bubble Sort:</strong> Menukar dua elemen berurutan jika dalam urutan yang salah, berulang hingga tidak ada lagi yang perlu ditukar.</li>
+  <li><strong>Insertion Sort:</strong> Menyisipkan elemen ke posisi yang sesuai dalam daftar yang telah terurut.</li>
+  <li><strong>Selection Sort:</strong> Memilih elemen terkecil dan menempatkannya di awal, lalu mengulang untuk sisa data.</li>
+</ul>
+<p>Pemilihan algoritma tergantung pada ukuran data dan kebutuhan efisiensi.</p>
+
+    </section>
+    
+  <section>
+    
+<h3>Contoh Bubble Sort</h3>
+<p>Misal: data = [5, 3, 8, 4, 2]</p>
+<ol>
+  <li><strong>Pass 1:</strong> (5,3) → tukar → [3,5,8,4,2]; (5,8) → tidak; (8,4) → tukar → [3,5,4,8,2]; (8,2) → tukar → [3,5,4,2,8]</li>
+  <li><strong>Pass 2:</strong> (3,5) → tidak; (5,4) → tukar → [3,4,5,2,8]; (5,2) → tukar → [3,4,2,5,8]</li>
+  <li><strong>Pass 3:</strong> (3,4) → tidak; (4,2) → tukar → [3,2,4,5,8]</li>
+  <li><strong>Pass 4:</strong> (3,2) → tukar → [2,3,4,5,8]</li>
+</ol>
+<p>Data kini terurut menaik.</p>
+
+    
+<h3>Contoh Selection Sort</h3>
+<p>Misal: data = [5, 3, 8, 4, 2]</p>
+<ol>
+  <li><strong>Langkah 1:</strong> cari terkecil (2), tukar dengan indeks 0 → [2, 3, 8, 4, 5]</li>
+  <li><strong>Langkah 2:</strong> cari terkecil dari indeks 1→ (3) → sudah benar</li>
+  <li><strong>Langkah 3:</strong> dari indeks 2→ (4), tukar dengan 8 → [2, 3, 4, 8, 5]</li>
+  <li><strong>Langkah 4:</strong> dari indeks 3→ (5), tukar dengan 8 → [2, 3, 4, 5, 8]</li>
+</ol>
+<p>Data kini sudah urut.</p>
+
+  </section>
+
+<section>
+  <h2>Animasi Bubble Sort</h2>
+  <div class="interactive">
+    <button onclick="bubbleSort()">🔁 Jalankan Bubble Sort</button>
+    <div id="bubbleArea" style="display:flex; gap:10px; margin-top:1rem;"></div>
+  </div>
+</section>
+
+<section>
+  <h2>Animasi Selection Sort</h2>
+  <div class="interactive">
+    <button onclick="selectionSort()">🔁 Jalankan Selection Sort</button>
+    <div id="selectArea" style="display:flex; gap:10px; margin-top:1rem;"></div>
+  </div>
+</section>
+
+</main>
+
+    
+
+  <script>
+    const sortArea = document.getElementById("sortArea");
+    let values = [7, 4, 6, 2, 5];
+
+    function renderBars(arr) {
+      sortArea.innerHTML = '';
+      arr.forEach(val => {
+        const bar = document.createElement("div");
+        bar.style.height = (val * 10) + "px";
+        bar.style.width = "30px";
+        bar.style.background = "#3399cc";
+        bar.style.textAlign = "center";
+        bar.style.color = "white";
+        bar.textContent = val;
+        sortArea.appendChild(bar);
+      });
+    }
+
+    async function insertionSort() {
+      values = [7, 4, 6, 2, 5];
+      renderBars(values);
+      for (let i = 1; i < values.length; i++) {
+        let key = values[i];
+        let j = i - 1;
+        while (j >= 0 && values[j] > key) {
+          values[j + 1] = values[j];
+          j = j - 1;
+          renderBars(values);
+          await new Promise(r => setTimeout(r, 500));
+        }
+        values[j + 1] = key;
+        renderBars(values);
+        await new Promise(r => setTimeout(r, 500));
+      }
+    }
+
+    renderBars(values);
+  
+const bubbleArea = document.getElementById("bubbleArea");
+const selectArea = document.getElementById("selectArea");
+
+function renderBarArea(area, arr) {
+  area.innerHTML = '';
+  arr.forEach(val => {
+    const bar = document.createElement("div");
+    bar.style.height = (val * 10) + "px";
+    bar.style.width = "30px";
+    bar.style.background = "#3399cc";
+    bar.style.textAlign = "center";
+    bar.style.color = "white";
+    bar.textContent = val;
+    area.appendChild(bar);
+  });
+}
+
+async function bubbleSort() {
+  let arr = [5, 3, 8, 4, 2];
+  renderBarArea(bubbleArea, arr);
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        renderBarArea(bubbleArea, arr);
+        await new Promise(r => setTimeout(r, 400));
+      }
+    }
+  }
+}
+
+async function selectionSort() {
+  let arr = [5, 3, 8, 4, 2];
+  renderBarArea(selectArea, arr);
+  for (let i = 0; i < arr.length; i++) {
+    let minIdx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[minIdx]) minIdx = j;
+    }
+    if (minIdx !== i) {
+      [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
+      renderBarArea(selectArea, arr);
+      await new Promise(r => setTimeout(r, 400));
+    }
+  }
+}
+
+</script>
+</body>
+</html>

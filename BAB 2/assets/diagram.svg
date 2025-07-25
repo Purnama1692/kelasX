@@ -1,0 +1,46 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 300" width="100%" height="auto">
+  <style>
+    .box {
+      fill: #d0e7ff;
+      stroke: #0055a5;
+      stroke-width: 2;
+    }
+    .label {
+      font-family: sans-serif;
+      font-size: 16px;
+      fill: #003366;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+    }
+  </style>
+
+  <g>
+    <a xlink:href="pages/abstraction.html">
+      <rect class="box" x="50" y="40" width="200" height="60" />
+    </a>
+    <text x="150" y="70" class="label">🎯 Abstraksi</text>
+  </g>
+
+  <g>
+    <a xlink:href="pages/decomposition.html">
+      <rect class="box" x="350" y="40" width="200" height="60" />
+    </a>
+    <text x="450" y="70" class="label">🧩 Dekomposisi</text>
+  </g>
+
+  <g>
+    <a xlink:href="pages/algorithm.html">
+      <rect class="box" x="50" y="160" width="200" height="60" />
+    </a>
+    <text x="150" y="190" class="label">🧮 Algoritma</text>
+  </g>
+
+  <g>
+    <a xlink:href="pages/pattern.html">
+      <rect class="box" x="350" y="160" width="200" height="60" />
+    </a>
+    <text x="450" y="190" class="label">📈 Pola</text>
+  </g>
+</svg>

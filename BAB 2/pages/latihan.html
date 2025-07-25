@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Latihan Soal</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header><h1>📝 Latihan Soal</h1></header>
+  <nav>
+    <a href="../index.html">🏠 Beranda</a> |
+    <a href="latihan.html">📝 Latihan</a> |
+    <a href="simulasi.html">🎮 Simulasi</a>
+  </nav>
+  <main>
+    
+<section>
+  <p>Jawablah soal berikut untuk menguji pemahamanmu:</p>
+  <div id="quiz1" class="interactive"></div>
+  <div id="quiz2" class="interactive"></div>
+  <div id="quiz3" class="interactive"></div>
+  <div id="quiz4" class="interactive"></div>
+  <div id="quiz5" class="interactive"></div>
+  <div id="quiz6" class="interactive"></div>
+</section>
+
+      <p>Jawablah soal berikut untuk menguji pemahamanmu:</p>
+      <div id="quizStack" class="interactive"></div>
+      <div id="quizQueue" class="interactive"></div>
+    </section>
+  </main>
+  <script src="../scripts/quiz.js"></script>
+  <script>
+    
+renderQuiz("quiz1", "Apa prinsip dasar dari Binary Search?", [
+  "Menebak angka secara acak",
+  "Mencari dari awal ke akhir",
+  "Membandingkan nilai tengah dan menyempitkan pencarian"
+], 2);
+
+renderQuiz("quiz2", "Linear Search cocok digunakan ketika...", [
+  "Data tidak terurut",
+  "Data dalam bentuk graf",
+  "Data sangat besar dan terurut"
+], 0);
+
+renderQuiz("quiz3", "Pada Bubble Sort, elemen yang lebih besar akan...", [
+  "Tetap di tempat",
+  "Menggelembung ke akhir daftar",
+  "Mengisi posisi tengah"
+], 1);
+
+renderQuiz("quiz4", "Algoritma pengurutan yang menyisipkan elemen ke dalam daftar yang sudah terurut disebut...", [
+  "Merge Sort",
+  "Insertion Sort",
+  "Bubble Sort"
+], 1);
+
+renderQuiz("quiz5", "Stack bekerja dengan prinsip...", [
+  "LIFO",
+  "FIFO",
+  "LILO"
+], 0);
+
+renderQuiz("quiz6", "Contoh penggunaan struktur data Stack adalah...", [
+  "Antrian kasir",
+  "Fitur \"Undo\" dalam aplikasi",
+  "Pemesanan tiket online"
+], 1);
+
+
+renderQuiz("quizStack", "Apa prinsip kerja Stack?", ["FIFO", "LIFO", "Random"], 1);
+    renderQuiz("quizQueue", "Apa prinsip kerja Queue?", ["FIFO", "LIFO", "Random"], 0);
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulasi Lanjutan</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header><h1>🎮 Simulasi Lanjutan</h1></header>
+  <nav>
+    <a href="../index.html">🏠 Beranda</a> |
+    <a href="latihan.html">📝 Latihan</a> |
+    <a href="simulasi.html">🎮 Simulasi</a>
+  </nav>
+  <main>
+    <section>
+      <h2>Simulasi Algoritma: Pengurutan Dinamis</h2>
+      <p>Masukkan bilangan yang ingin kamu urutkan. Pisahkan dengan koma.</p>
+      <input type="text" id="customArray" placeholder="Contoh: 6,3,9,2">
+      <button onclick="runCustomSort()">Urutkan (Insertion Sort)</button>
+      <p id="swapCount" style="margin-bottom:10px; font-weight:bold;"></p>
+      <div id="customSortArea" style="display: flex; gap: 10px; margin-top: 1rem;"></div>
+    </section>
+  
+<section>
+  <h2>Simulasi Bubble Sort & Selection Sort</h2>
+  <p>Masukkan bilangan (pisahkan dengan koma):</p>
+  <input type="text" id="bubbleInput" placeholder="Contoh: 9,4,5,3">
+  <button onclick="runBubble()">🔁 Bubble Sort</button>
+  <p id="bubbleSwap" style="font-weight: bold;"></p>
+  <div id="bubbleVisual" style="display:flex; gap:10px; margin-bottom: 2rem;"></div>
+
+  <input type="text" id="selectInput" placeholder="Contoh: 7,2,6,1">
+  <button onclick="runSelection()">🔁 Selection Sort</button>
+  <p id="selectSwap" style="font-weight: bold;"></p>
+  <div id="selectVisual" style="display:flex; gap:10px;"></div>
+</section>
+
+</main>
+  <script>
+    function renderCustom(arr) {
+      const area = document.getElementById("customSortArea");
+      area.innerHTML = "";
+      arr.forEach(val => {
+        const div = document.createElement("div");
+        div.textContent = val;
+        div.style.background = "#444";
+        div.style.color = "#fff";
+        div.style.padding = "10px";
+        area.appendChild(div);
+      });
+    }
+
+    async function runCustomSort() {
+  let swapCount = 0;
+  document.getElementById('swapCount').innerText = '';
+      let input = document.getElementById("customArray").value;
+      let arr = input.split(",").map(x => parseInt(x.trim())).filter(x => !isNaN(x));
+      for (let i = 1; i < arr.length; i++) {
+        let key = arr[i];
+        let j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+          arr[j + 1] = arr[j]; swapCount++;
+          j--;
+          renderCustom(arr);
+          await new Promise(r => setTimeout(r, 500));
+        }
+        arr[j + 1] = key;
+  document.getElementById('swapCount').innerText = `Jumlah perpindahan: ${swapCount}`;
+        renderCustom(arr);
+        await new Promise(r => setTimeout(r, 500));
+      }
+    }
+  
+function renderBar(id, arr) {
+  const area = document.getElementById(id);
+  area.innerHTML = "";
+  arr.forEach(val => {
+    const div = document.createElement("div");
+    div.textContent = val;
+    div.style.background = "#555";
+    div.style.color = "#fff";
+    div.style.padding = "10px";
+    area.appendChild(div);
+  });
+}
+
+async function runBubble() {
+  let input = document.getElementById("bubbleInput").value;
+  let arr = input.split(",").map(x => parseInt(x.trim())).filter(x => !isNaN(x));
+  let swap = 0;
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        swap++;
+        renderBar("bubbleVisual", arr);
+        await new Promise(r => setTimeout(r, 300));
+      }
+    }
+  }
+  document.getElementById("bubbleSwap").innerText = "Jumlah perpindahan: " + swap;
+}
+
+async function runSelection() {
+  let input = document.getElementById("selectInput").value;
+  let arr = input.split(",").map(x => parseInt(x.trim())).filter(x => !isNaN(x));
+  let swap = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) min = j;
+    }
+    if (min !== i) {
+      [arr[i], arr[min]] = [arr[min], arr[i]];
+      swap++;
+      renderBar("selectVisual", arr);
+      await new Promise(r => setTimeout(r, 300));
+    }
+  }
+  document.getElementById("selectSwap").innerText = "Jumlah perpindahan: " + swap;
+}
+
+</script>
+</body>
+</html>

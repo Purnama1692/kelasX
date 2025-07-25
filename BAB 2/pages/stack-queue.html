@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stack dan Queue</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header><h1>📚 Stack & Queue</h1></header>
+
+<nav>
+  <a href="../index.html">🏠 Beranda</a> |
+  <a href="searching.html">🔍 Searching</a> |
+  <a href="sorting.html">🔢 Sorting</a> |
+  <a href="stack-queue.html">📚 Stack & Queue</a>
+</nav>
+
+  
+  <main>
+    <section>
+      <h2>Perbedaan Stack dan Queue</h2>
+      <ul>
+        <li><strong>Stack:</strong> Last In, First Out (LIFO)</li>
+        <li><strong>Queue:</strong> First In, First Out (FIFO)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Simulasi Stack</h2>
+      <div class="interactive">
+        <input type="number" id="stackVal" placeholder="Angka" />
+        <button onclick="pushStack()">Push</button>
+        <button onclick="popStack()">Pop</button>
+        <div id="stackDisplay" style="margin-top:1rem;"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Simulasi Queue</h2>
+      <div class="interactive">
+        <input type="number" id="queueVal" placeholder="Angka" />
+        <button onclick="enqueue()">Enqueue</button>
+        <button onclick="dequeue()">Dequeue</button>
+        <div id="queueDisplay" style="margin-top:1rem;"></div>
+      </div>
+    </section>
+  
+    <section>
+      <h2>Penjelasan Tambahan</h2>
+      
+<p>Stack dan Queue adalah dua struktur data dasar yang penting untuk pengolahan data dalam urutan tertentu.</p>
+<ul>
+  <li><strong>Stack:</strong> Menggunakan prinsip LIFO (Last In First Out). Cocok untuk fitur undo, back pada browser, dsb.</li>
+  <li><strong>Queue:</strong> Menggunakan prinsip FIFO (First In First Out). Cocok untuk antrian cetak, antrian tugas, dll.</li>
+</ul>
+<p>Kedua struktur ini dapat diimplementasikan menggunakan array atau linked list dalam pemrograman.</p>
+
+    </section>
+    
+<section>
+  <h2>Animasi Visual Stack</h2>
+  <div class="interactive">
+    <button onclick="pushStackAnim()">Push</button>
+    <button onclick="popStackAnim()">Pop</button>
+    <div id="stackAnim" style="margin-top: 1rem; display: flex; flex-direction: column-reverse; gap: 5px;"></div>
+  </div>
+</section>
+
+<section>
+  <h2>Animasi Visual Queue</h2>
+  <div class="interactive">
+    <button onclick="enqueueAnim()">Enqueue</button>
+    <button onclick="dequeueAnim()">Dequeue</button>
+    <div id="queueAnim" style="margin-top: 1rem; display: flex; gap: 10px;"></div>
+  </div>
+</section>
+
+</main>
+    
+
+  <script>
+    let stack = [];
+    function pushStack() {
+      const val = document.getElementById("stackVal").value;
+      if (val) stack.push(val);
+      displayStack();
+    }
+    function popStack() {
+      stack.pop();
+      displayStack();
+    }
+    function displayStack() {
+      document.getElementById("stackDisplay").innerText = "Isi Stack: " + stack.join(", ");
+    }
+
+    let queue = [];
+    function enqueue() {
+      const val = document.getElementById("queueVal").value;
+      if (val) queue.push(val);
+      displayQueue();
+    }
+    function dequeue() {
+      queue.shift();
+      displayQueue();
+    }
+    function displayQueue() {
+      document.getElementById("queueDisplay").innerText = "Isi Queue: " + queue.join(", ");
+    }
+  
+let stackAnim = [];
+let queueAnim = [];
+
+function renderStackAnim() {
+  const area = document.getElementById("stackAnim");
+  area.innerHTML = '';
+  stackAnim.forEach(val => {
+    const el = document.createElement("div");
+    el.textContent = val;
+    el.style.background = "#336699";
+    el.style.color = "white";
+    el.style.padding = "10px";
+    el.style.textAlign = "center";
+    area.appendChild(el);
+  });
+}
+
+function renderQueueAnim() {
+  const area = document.getElementById("queueAnim");
+  area.innerHTML = '';
+  queueAnim.forEach(val => {
+    const el = document.createElement("div");
+    el.textContent = val;
+    el.style.background = "#33a07c";
+    el.style.color = "white";
+    el.style.padding = "10px";
+    el.style.textAlign = "center";
+    area.appendChild(el);
+  });
+}
+
+function pushStackAnim() {
+  const val = prompt("Masukkan nilai untuk stack:");
+  if (val) {
+    stackAnim.push(val);
+    renderStackAnim();
+  }
+}
+
+function popStackAnim() {
+  stackAnim.pop();
+  renderStackAnim();
+}
+
+function enqueueAnim() {
+  const val = prompt("Masukkan nilai untuk queue:");
+  if (val) {
+    queueAnim.push(val);
+    renderQueueAnim();
+  }
+}
+
+function dequeueAnim() {
+  queueAnim.shift();
+  renderQueueAnim();
+}
+
+</script>
+</body>
+</html>

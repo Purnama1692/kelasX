@@ -1,31 +1,99 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Informatika & Keterampilan Generik</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eksplorasi Interaktif - Informatika Kelas X</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    .container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card h3 {
+      margin: 0 0 0.5rem;
+      color: #004080;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      background: #f1f1f1;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="../index.html">🏠 Home</a></li>
-      <li><a href="slide1.html">Pendahuluan</a></li>
-      <li><a href="slide2.html">Apa Itu Informatika</a></li>
-      <li><a href="slide3.html">Era Digital</a></li>
-      <li><a href="slide4.html">Computational Thinking</a></li>
-      <li><a href="slide5.html">Pilar Informatika</a></li>
-      <li><a href="slide6.html">Keterampilan Generik</a></li>
-      <li><a href="slide7.html">Kolaborasi</a></li>
-      <li><a href="slide8.html">Presentasi</a></li>
-      <li><a href="slide9.html">Kesimpulan</a></li>
-      <li><a href="slide10.html"> Diskusi</a></li>
-    </ul>
-  </nav>
-  <main class="content">
-    <h1>Selamat Datang di Eksplorasi Interaktif</h1>
-    <p>Silakan pilih matesi untuk memulai pembelajaran interaktif tentang Informatika dan Keterampilan Generik.</p>
-  </main>
+  <header>
+    <h1>Eksplorasi Interaktif</h1>
+    <p>Buku Informatika Kelas X - Kurikulum Merdeka</p>
+  </header>
+
+  <div class="container">
+    <div class="card" onclick="goTo('BAB 1/index.html')">
+      <h3>Bab 1</h3>
+      <p>Informatika</p>
+    </div>
+    <div class="card" onclick="goTo('BAB 2/index.html')">
+      <h3>Bab 2</h3>
+      <p>Berpikir Komputasional</p>
+    </div>
+    <div class="card" onclick="goTo('bab3.html')">
+      <h3>Bab 3</h3>
+      <p>Representasi Data</p>
+    </div>
+    <div class="card" onclick="goTo('bab4.html')">
+      <h3>Bab 4</h3>
+      <p>Jaringan Komputer dan Internet</p>
+    </div>
+    <div class="card" onclick="goTo('bab5.html')">
+      <h3>Bab 5</h3>
+      <p>Sistem Komputer</p>
+    </div>
+    <div class="card" onclick="goTo('bab6.html')">
+      <h3>Bab 6</h3>
+      <p>Etika dan Keamanan Digital</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 - Eksplorasi Interaktif Informatika Kelas X
+  </footer>
+
+  <script>
+    function goTo(file) {
+      window.location.href = file;
+    }
+  </script>
 </body>
 </html>
